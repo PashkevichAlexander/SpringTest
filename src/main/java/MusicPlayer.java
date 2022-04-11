@@ -1,8 +1,10 @@
+import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
 
 import java.util.ArrayList;
 import java.util.List;
 
+@AllArgsConstructor
 @NoArgsConstructor
 public class MusicPlayer {
     private List<Music> musicList = new ArrayList();
@@ -31,13 +33,13 @@ public class MusicPlayer {
         this.musicList = music;
     }
 
-    public void setMusic(List<Music> music) {
+    public void setMusicList(List<Music> music) {
         this.musicList = music;
     }
 
-    public void playMusic(){
-        for (Music music: musicList) {
-            System.out.println(music.getSong());
+    public void playMusic() {
+        for (Music music : musicList) {
+            System.out.println("playing" + music.getSong());
         }
     }
 }

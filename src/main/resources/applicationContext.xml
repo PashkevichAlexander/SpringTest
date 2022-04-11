@@ -1,40 +1,42 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-       xmlns:context="http://www.springframework.org/schema/context"
        xmlns:contect="http://www.springframework.org/schema/context"
+       xmlns:util="http://www.springframework.org/schema/util"
        xsi:schemaLocation="http://www.springframework.org/schema/beans
         http://www.springframework.org/schema/beans/spring-beans.xsd
         http://www.springframework.org/schema/context
-        http://www.springframework.org/schema/context/spring-context.xsd">
+        http://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/util https://www.springframework.org/schema/util/spring-util.xsd">
 
-   <contect:property-placeholder location="classpath:musicPlayer.properties"/>
+    <contect:property-placeholder location="classpath:musicPlayer.properties"/>
 
-    <bean id="musicBean"
-          class="RockMusic">
+    <bean id="musicBean1" class="RockMusic"/>
+    <bean id="musicBean2" class="ClassicalMusic"/>
+    <bean id="musicBean3" class="RapMusic"/>
+
+    <bean id="musicPlayer"
+          class="MusicPlayer">
+        <property name="musicList">
+            <list>
+                <ref bean="musicBean1"/>
+                <ref bean="musicBean2"/>
+                <ref bean="musicBean3"/>
+            </list>
+        </property>
+
+        <property name="name" value="${musicPlayer.name}"/>
+        <property name="volume" value="${musicPlayer.volume}"/>
     </bean>
 
 
-
-<!--    Chererz construct     -->
-
+    <!--    Chererz construct     -->
 
 
-
-<!--    <bean id = "MusicPlayer"-->
-<!--        class = "MusicPlayer">-->
-<!--        <constructor-arg ref="musicBean" />-->
-<!--    </bean>-->
+    <!--    <bean id = "MusicPlayer"-->
+    <!--        class = "MusicPlayer">-->
+    <!--        <constructor-arg ref="musicBean" />-->
+    <!--    </bean>-->
 
     <!-- CHEREZ SETTER -->
 
-
-
-    <bean id="MusicPlayer"
-          class="MusicPlayer">
-        <property name="music" ref="musicBean"/>
-
-        <property name="name" value="${musicPlayer.name}" />
-        <property name="volume" value="${musicPlayer.volume}" />
-    </bean>
-        </beans>
+</beans>

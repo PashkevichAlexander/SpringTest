@@ -1,7 +1,13 @@
+package task.app;
+
+import org.springframework.boot.ApplicationArguments;
+import task.service.MusicPlayer;
+import task.entity.ClassicalMusic;
+import task.entity.RockMusic;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
-public class TestSpring {
-    public static void main(String[] args) {
+public class SpringApplicarion {
+    public static void run(ApplicationArguments arg0) throws Exception {
         ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("applicationContext.xml");
 
         RockMusic rockMusic = context.getBean("musicBean1", RockMusic.class);

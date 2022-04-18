@@ -2,16 +2,22 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xmlns:contect="http://www.springframework.org/schema/context"
-       xmlns:util="http://www.springframework.org/schema/util"
        xsi:schemaLocation="http://www.springframework.org/schema/beans
         http://www.springframework.org/schema/beans/spring-beans.xsd
         http://www.springframework.org/schema/context
-        http://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/util https://www.springframework.org/schema/util/spring-util.xsd">
+        http://www.springframework.org/schema/context/spring-context.xsd">
 
     <contect:property-placeholder location="classpath:musicPlayer.properties"/>
 
-    <bean id="musicBean1" class="RockMusic"/>
-    <bean id="musicBean2" class="ClassicalMusic"/>
+    <bean id="musicBean1" class="RockMusic"
+          destroy-method="DoMyDestroy"
+    />
+    <bean
+            id="musicBean2"
+            class="ClassicalMusic"
+            factory-method="getClassicalMusic"
+            scope="prototype"
+    />
     <bean id="musicBean3" class="RapMusic"/>
 
     <bean id="musicPlayer"

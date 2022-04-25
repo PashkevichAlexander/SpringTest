@@ -3,6 +3,7 @@ package task.service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import task.entity.ClassicalMusic;
+import task.entity.Music;
 
 @Component
 public class MusicPlayer {
@@ -12,6 +13,7 @@ public class MusicPlayer {
     public MusicPlayer(ClassicalMusic classicalMusic) {
         this.classicalMusic = classicalMusic;
     }
+
 
     public void playMusic() {
         System.out.println(classicalMusic.getSong());

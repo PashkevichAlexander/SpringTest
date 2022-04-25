@@ -1,9 +1,6 @@
 package task.app;
 
-import org.springframework.boot.ApplicationArguments;
 import task.service.MusicPlayer;
-import task.entity.ClassicalMusic;
-import task.entity.RockMusic;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 public class TestSpring {
@@ -16,8 +13,16 @@ public class TestSpring {
 //        ClassicalMusic classicalMusic = context.getBean("classicalMusic", ClassicalMusic.class);
 //        System.out.println(classicalMusic.getSong());
 
-        MusicPlayer musicPlayer1 = context.getBean("musicPlayer", MusicPlayer.class);
-        musicPlayer1.playMusic();
+//        Music music = context.getBean("ClassicalMusic", Music.class);
+//        MusicPlayer classicalMusicPlayer = new MusicPlayer(music);
+
+
+
+
+        MusicPlayer musicPlayer = context.getBean("musicPlayer", MusicPlayer.class);
+        musicPlayer.playMusic();
+
+        context.close();
 
         context.close();
     }

@@ -1,5 +1,7 @@
 package task.entity;
 
+import java.util.Map;
+
 public interface Music {
-    String getSong();
+    Map getSong();
 }

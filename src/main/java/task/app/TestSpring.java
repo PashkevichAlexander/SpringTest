@@ -1,6 +1,6 @@
 package task.app;
 
-import task.service.MusicPlayer;
+import task.service.Computer;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 public class TestSpring {
@@ -19,11 +19,13 @@ public class TestSpring {
 
 
 
-        MusicPlayer musicPlayer = context.getBean("musicPlayer", MusicPlayer.class);
-        musicPlayer.playMusic();
+//        MusicPlayer musicPlayer = context.getBean("musicPlayer", MusicPlayer.class);
+//        musicPlayer.playMusic();
+//        context.close();
 
+        Computer computer = context.getBean("computer", Computer.class);
+        System.out.println(computer.toString());
         context.close();
 
-        context.close();
     }
 }

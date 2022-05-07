@@ -11,6 +11,10 @@ public class Computer {
     private int id;
     private MusicPlayer musicPlayer;
 
+    public MusicPlayer getMusicPlayer() {
+        return musicPlayer;
+    }
+
     @Autowired
     public Computer(MusicPlayer musicPlayer) {
         this.id = 1;
